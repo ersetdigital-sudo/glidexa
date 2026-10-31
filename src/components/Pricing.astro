@@ -22,10 +22,11 @@ import Icon from './Icon.astro';
       <SectionHeading title={PRICING.title} subtitle={PRICING.subtitle} />
     </div>
 
-    <div class="relative flex w-full flex-col items-center gap-6 lg:w-full lg:max-w-[1400px] lg:flex-row lg:items-stretch lg:gap-10">
+    <div class="relative flex w-full flex-col items-center gap-6 lg:max-w-[1400px]">
+    <div class="relative -mx-4 flex w-[calc(100%+2rem)] snap-x snap-mandatory gap-4 overflow-x-auto px-4 pb-1 no-scrollbar sm:-mx-8 sm:w-[calc(100%+4rem)] sm:px-8 lg:mx-0 lg:w-full lg:snap-none lg:items-stretch lg:gap-10 lg:overflow-visible lg:px-0 lg:pb-0" data-carousel>
       {
         PRICING.plans.map((plan) => (
-          <div class="flex w-full max-w-[354px] flex-col items-start border border-surface-2 bg-surface p-6 lg:h-[442px] lg:w-auto lg:max-w-none lg:flex-1">
+          <div class="flex w-[85%] max-w-[340px] shrink-0 snap-center flex-col items-start rounded-2xl border border-surface-2 bg-surface p-6 lg:h-[442px] lg:w-auto lg:max-w-none lg:flex-1 lg:shrink lg:rounded-none">
             <div class="flex w-full flex-col items-start gap-4">
               <div class="flex flex-col items-start gap-1">
                 <p class="font-geist text-xl leading-[30px] font-semibold whitespace-nowrap text-strong">{plan.name}</p>
@@ -49,5 +50,9 @@ import Icon from './Icon.astro';
         ))
       }
     </div>
+    <div class="flex items-center gap-2 lg:hidden" data-dots>
+      {PRICING.plans.map((_, i) => <span class:list={['h-1.5 rounded-full transition-all', i === 0 ? 'w-6 bg-azure-64' : 'w-1.5 bg-line']} />)}
+    </div>
+  </div>
   </div>
 </section>

@@ -21,14 +21,15 @@ const [ping, connect, privacy] = APP_SECTION.cards;
       <SectionHeading title={APP_SECTION.title} subtitle={APP_SECTION.subtitle} />
     </div>
 
-    <div class="relative flex w-full flex-col items-center gap-12 lg:max-w-[1400px] lg:flex-row lg:items-center lg:justify-between lg:gap-0">
+    <div class="relative flex w-full flex-col items-center gap-6 lg:max-w-[1400px]">
+    <div class="relative -mx-4 flex w-[calc(100%+2rem)] snap-x snap-mandatory gap-4 overflow-x-auto px-4 pb-1 no-scrollbar sm:-mx-8 sm:w-[calc(100%+4rem)] sm:px-8 lg:mx-0 lg:w-full lg:max-w-[1400px] lg:snap-none lg:items-center lg:justify-between lg:gap-0 lg:overflow-visible lg:px-0 lg:pb-0" data-carousel>
       <!-- Card 1: ping chart -->
-      <article class="flex w-full max-w-[360px] shrink-0 flex-col items-start gap-8">
-        <div class="flex w-full flex-col items-start gap-4 p-4 tracking-[-0.16px]">
-          <h3 class="w-full font-mono text-2xl leading-9 font-bold text-white">{ping.title}</h3>
-          <p class="w-full font-geist text-base leading-[30px] text-text">{ping.text}</p>
+      <article class="flex w-[310px] shrink-0 snap-center flex-col-reverse overflow-hidden rounded-2xl border border-line bg-surface sm:w-[360px] lg:w-full lg:max-w-[360px] lg:flex-col lg:items-start lg:gap-8 lg:overflow-visible lg:rounded-none lg:border-0 lg:bg-transparent">
+        <div class="flex w-full flex-col items-start gap-2 p-5 tracking-[-0.16px] lg:gap-4 lg:p-4">
+          <h3 class="w-full font-mono text-xl leading-8 font-bold text-white lg:text-2xl lg:leading-9">{ping.title}</h3>
+          <p class="w-full font-geist text-sm leading-6 text-text/90 lg:text-base lg:leading-[30px] lg:text-text">{ping.text}</p>
         </div>
-        <div class="relative size-[360px] shrink-0 overflow-clip max-[400px]:[zoom:0.86]">
+        <div class="relative size-[360px] shrink-0 overflow-clip max-sm:[zoom:0.8611]">
           <div aria-hidden="true" class="pointer-events-none absolute inset-0">
             <div class="absolute inset-0 bg-surface"></div>
             <div class="absolute inset-0 overflow-hidden opacity-7">
@@ -63,12 +64,12 @@ const [ping, connect, privacy] = APP_SECTION.cards;
       </article>
 
       <!-- Card 2: one tap connect -->
-      <article class="flex w-full max-w-[360px] shrink-0 flex-col items-start gap-8">
-        <div class="flex w-full flex-col items-start gap-4 p-4 tracking-[-0.16px]">
-          <h3 class="w-full font-mono text-2xl leading-9 font-bold text-white">{connect.title}</h3>
-          <p class="w-full font-geist text-base leading-[30px] text-text">{connect.text}</p>
+      <article class="flex w-[310px] shrink-0 snap-center flex-col-reverse overflow-hidden rounded-2xl border border-line bg-surface sm:w-[360px] lg:w-full lg:max-w-[360px] lg:flex-col lg:items-start lg:gap-8 lg:overflow-visible lg:rounded-none lg:border-0 lg:bg-transparent">
+        <div class="flex w-full flex-col items-start gap-2 p-5 tracking-[-0.16px] lg:gap-4 lg:p-4">
+          <h3 class="w-full font-mono text-xl leading-8 font-bold text-white lg:text-2xl lg:leading-9">{connect.title}</h3>
+          <p class="w-full font-geist text-sm leading-6 text-text/90 lg:text-base lg:leading-[30px] lg:text-text">{connect.text}</p>
         </div>
-        <div class="relative size-[360px] shrink-0 overflow-clip max-[400px]:[zoom:0.86]">
+        <div class="relative size-[360px] shrink-0 overflow-clip max-sm:[zoom:0.8611]">
           <div aria-hidden="true" class="pointer-events-none absolute inset-0">
             <div class="absolute inset-0 bg-surface"></div>
             <img alt="" class="absolute size-full max-w-none object-cover opacity-20" src="/images/card-connect-bg.webp" />
@@ -95,18 +96,24 @@ const [ping, connect, privacy] = APP_SECTION.cards;
       </article>
 
       <!-- Card 3: privacy -->
-      <article class="flex w-full max-w-[360px] shrink-0 flex-col items-start gap-8">
-        <div class="flex w-full flex-col items-start gap-4 p-4 tracking-[-0.16px]">
-          <h3 class="w-full font-mono text-2xl leading-9 font-bold text-white">{privacy.title}</h3>
-          <p class="w-full font-geist text-base leading-[30px] text-text">{privacy.text}</p>
+      <article class="flex w-[310px] shrink-0 snap-center flex-col-reverse overflow-hidden rounded-2xl border border-line bg-surface sm:w-[360px] lg:w-full lg:max-w-[360px] lg:flex-col lg:items-start lg:gap-8 lg:overflow-visible lg:rounded-none lg:border-0 lg:bg-transparent">
+        <div class="flex w-full flex-col items-start gap-2 p-5 tracking-[-0.16px] lg:gap-4 lg:p-4">
+          <h3 class="w-full font-mono text-xl leading-8 font-bold text-white lg:text-2xl lg:leading-9">{privacy.title}</h3>
+          <p class="w-full font-geist text-sm leading-6 text-text/90 lg:text-base lg:leading-[30px] lg:text-text">{privacy.text}</p>
         </div>
-        <div class="relative size-[360px] shrink-0 overflow-clip bg-surface max-[400px]:[zoom:0.86]">
+        <div class="relative size-[360px] shrink-0 overflow-clip bg-surface max-sm:[zoom:0.8611]">
           <img alt="" class="absolute top-0 left-0 size-[360px]" src="/images/privacy-shield.svg" />
           <Chip dot="/images/dot-blue.svg" label="IP Hidden" sub="•••.•••.••.12" class="top-[26px] left-[84px]" />
           <Chip dot="/images/dot-red.svg" label="Tracking Blocked" class="top-[296px] left-3.5" />
           <Chip dot="/images/dot-green.svg" label="WiFi Protected" class="top-[296px] left-[219px]" />
         </div>
       </article>
+    </div>
+    <div class="flex items-center gap-2 lg:hidden" data-dots>
+      <span class="h-1.5 w-6 rounded-full bg-azure-64 transition-all"></span>
+      <span class="h-1.5 w-1.5 rounded-full bg-line transition-all"></span>
+      <span class="h-1.5 w-1.5 rounded-full bg-line transition-all"></span>
+    </div>
     </div>
   </div>
 </section>
