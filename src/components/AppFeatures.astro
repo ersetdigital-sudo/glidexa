@@ -1,0 +1,112 @@
+---
+import { APP_SECTION } from '../data/site';
+import SectionBadge from './SectionBadge.astro';
+import SectionHeading from './SectionHeading.astro';
+import Chip from './Chip.astro';
+
+const [ping, connect, privacy] = APP_SECTION.cards;
+---
+
+<section id="app" class="relative flex w-full flex-col items-center overflow-clip bg-page px-0">
+  <div class="relative flex w-full max-w-none flex-col items-center gap-14 border-x border-line bg-page px-4 py-16 sm:px-8 lg:px-16 lg:py-20">
+    <!-- dot texture -->
+    <div class="pointer-events-none absolute top-[399px] left-[-1px] h-[557px] w-full opacity-24 mix-blend-difference lg:w-full">
+      <div class="absolute inset-0 overflow-hidden">
+        <img alt="" class="absolute top-[-3.51%] left-[-11.05%] h-[117.32%] w-[126.43%] max-w-none" src="/images/bg-texture.png" />
+      </div>
+    </div>
+
+    <div class="relative flex w-full flex-col items-center gap-10">
+      <SectionBadge label={APP_SECTION.badge} />
+      <SectionHeading title={APP_SECTION.title} subtitle={APP_SECTION.subtitle} />
+    </div>
+
+    <div class="relative flex w-full flex-col items-center gap-12 lg:max-w-[1400px] lg:flex-row lg:items-center lg:justify-between lg:gap-0">
+      <!-- Card 1: ping chart -->
+      <article class="flex w-full max-w-[360px] shrink-0 flex-col items-start gap-8">
+        <div class="flex w-full flex-col items-start gap-4 p-4 tracking-[-0.16px]">
+          <h3 class="w-full font-mono text-2xl leading-9 font-bold text-white">{ping.title}</h3>
+          <p class="w-full font-geist text-base leading-[30px] text-text">{ping.text}</p>
+        </div>
+        <div class="relative size-[360px] shrink-0 overflow-clip max-[400px]:[zoom:0.86]">
+          <div aria-hidden="true" class="pointer-events-none absolute inset-0">
+            <div class="absolute inset-0 bg-surface"></div>
+            <div class="absolute inset-0 overflow-hidden opacity-7">
+              <img alt="" class="absolute top-[0.05%] left-[-0.04%] h-full w-[114.19%] max-w-none" src="/images/card-ping-bg.png" />
+            </div>
+          </div>
+          <img alt="" class="absolute top-0 left-0 size-[360px]" src="/images/card-ping-glow.svg" />
+          <p class="absolute top-[22px] left-5 font-mono text-[11px] leading-[normal] font-bold whitespace-nowrap text-chip">LIVE PING</p>
+          <div class="absolute top-[21px] left-[161px] flex items-center gap-3.5 overflow-clip">
+            <div class="flex items-center gap-1.5">
+              <span class="h-[3px] w-2.5 rounded-[2px] bg-danger"></span>
+              <span class="font-inter text-[11px] leading-[normal] font-medium whitespace-nowrap text-chip">Without VPN</span>
+            </div>
+            <div class="flex items-center gap-1.5">
+              <span class="h-[3px] w-2.5 rounded-[2px] bg-ping"></span>
+              <span class="font-inter text-[11px] leading-[normal] font-medium whitespace-nowrap text-chip">GlideXAVPN</span>
+            </div>
+          </div>
+          <img alt="Ping comparison chart" class="absolute top-[58px] left-5 h-[176px] w-[320px]" src="/images/ping-chart.svg" />
+          <div class="absolute top-[262px] left-5 flex flex-col items-start gap-1 leading-[normal] whitespace-nowrap">
+            <span class="font-mono text-[10px] text-chip">WITHOUT VPN</span>
+            <span class="font-mono text-[26px] font-bold text-danger">128ms</span>
+          </div>
+          <div class="absolute top-[262px] left-[150px] flex flex-col items-start gap-1 leading-[normal] whitespace-nowrap">
+            <span class="font-mono text-[10px] text-chip">GLIDEXAVPN</span>
+            <span class="font-mono text-[26px] font-bold text-white">12ms</span>
+          </div>
+          <div class="absolute top-[280px] left-[255px] flex items-start rounded-md bg-ping px-2.5 py-1.5 shadow-[0px_0px_18px_0px_rgba(47,114,255,0.7)]">
+            <span class="font-mono text-xs leading-[normal] font-bold whitespace-nowrap text-white">-90% PING</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- Card 2: one tap connect -->
+      <article class="flex w-full max-w-[360px] shrink-0 flex-col items-start gap-8">
+        <div class="flex w-full flex-col items-start gap-4 p-4 tracking-[-0.16px]">
+          <h3 class="w-full font-mono text-2xl leading-9 font-bold text-white">{connect.title}</h3>
+          <p class="w-full font-geist text-base leading-[30px] text-text">{connect.text}</p>
+        </div>
+        <div class="relative size-[360px] shrink-0 overflow-clip max-[400px]:[zoom:0.86]">
+          <div aria-hidden="true" class="pointer-events-none absolute inset-0">
+            <div class="absolute inset-0 bg-surface"></div>
+            <img alt="" class="absolute size-full max-w-none object-cover opacity-20" src="/images/card-connect-bg.webp" />
+          </div>
+          <img alt="" class="absolute top-0 left-0 size-[360px]" src="/images/connect-rings.svg" />
+          <div class="absolute top-[100px] left-[132px] size-24">
+            <div class="absolute inset-[-52.08%]"><img alt="" class="block size-full max-w-none" src="/images/connect-button.svg" /></div>
+          </div>
+          <p class="absolute top-[220px] left-[128.5px] font-mono text-[10px] leading-[normal] font-bold tracking-[1.4px] whitespace-nowrap text-chip">TAP TO CONNECT</p>
+          <Chip dot="/images/dot-gray.svg" label="Japan" sub="24 ms" class="top-5 left-4 opacity-45" />
+          <Chip dot="/images/dot-gray.svg" label="Germany" sub="38 ms" class="top-5 left-[209px] opacity-45" />
+          <div class="absolute top-[262px] left-[48.5px] flex items-center gap-3 overflow-clip rounded-[10px] border border-[rgba(47,114,255,0.75)] bg-[rgba(14,16,22,0.96)] px-3.5 py-2.5 shadow-[0px_0px_24px_0px_rgba(47,114,255,0.4)]">
+            <img alt="" class="size-7 shrink-0" src="/images/flag-sg.svg" />
+            <div class="flex flex-col items-start gap-px leading-[normal] whitespace-nowrap">
+              <span class="font-inter text-[11px] text-chip">Fastest server found</span>
+              <span class="font-inter text-sm font-semibold text-white">Singapore</span>
+            </div>
+            <div class="flex items-start rounded-md bg-[rgba(46,213,115,0.15)] px-2 py-1">
+              <span class="font-mono text-xs leading-[normal] font-bold whitespace-nowrap text-ok">5 ms</span>
+            </div>
+          </div>
+          <img alt="" class="absolute top-[122px] left-[154px] size-[52px]" src="/images/logo-mark.svg" />
+        </div>
+      </article>
+
+      <!-- Card 3: privacy -->
+      <article class="flex w-full max-w-[360px] shrink-0 flex-col items-start gap-8">
+        <div class="flex w-full flex-col items-start gap-4 p-4 tracking-[-0.16px]">
+          <h3 class="w-full font-mono text-2xl leading-9 font-bold text-white">{privacy.title}</h3>
+          <p class="w-full font-geist text-base leading-[30px] text-text">{privacy.text}</p>
+        </div>
+        <div class="relative size-[360px] shrink-0 overflow-clip bg-surface max-[400px]:[zoom:0.86]">
+          <img alt="" class="absolute top-0 left-0 size-[360px]" src="/images/privacy-shield.svg" />
+          <Chip dot="/images/dot-blue.svg" label="IP Hidden" sub="•••.•••.••.12" class="top-[26px] left-[84px]" />
+          <Chip dot="/images/dot-red.svg" label="Tracking Blocked" class="top-[296px] left-3.5" />
+          <Chip dot="/images/dot-green.svg" label="WiFi Protected" class="top-[296px] left-[219px]" />
+        </div>
+      </article>
+    </div>
+  </div>
+</section>

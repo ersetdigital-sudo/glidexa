@@ -1,0 +1,9 @@
+---
+import Base from '../layouts/Base.astro';
+import LegalPage from '../components/LegalPage.astro';
+import { PRIVACY_POLICY } from '../data/legal';
+---
+
+<Base title="Privacy Policy - GlideXAVPN" description="How GlideXAVPN handles your data and protects your privacy.">
+  <LegalPage doc={PRIVACY_POLICY} />
+</Base>

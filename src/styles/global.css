@@ -1,0 +1,86 @@
+@import "tailwindcss";
+
+@import "@fontsource/jetbrains-mono/400.css";
+@import "@fontsource/jetbrains-mono/500.css";
+@import "@fontsource/jetbrains-mono/700.css";
+@import "@fontsource/geist/400.css";
+@import "@fontsource/geist/500.css";
+@import "@fontsource/geist/600.css";
+@import "@fontsource/inter/400.css";
+@import "@fontsource/inter/500.css";
+@import "@fontsource/inter/600.css";
+
+/* Design tokens, taken 1:1 from the Figma file */
+@theme {
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+  --font-geist: "Geist", ui-sans-serif, system-ui, sans-serif;
+  --font-inter: "Inter", ui-sans-serif, system-ui, sans-serif;
+
+  --color-page: #0a0a0a;      /* neutral/950 */
+  --color-surface: #171717;   /* neutral/900 */
+  --color-surface-2: #262626; /* neutral/800 */
+  --color-line: #404040;      /* neutral/700 */
+  --color-muted-2: #737373;   /* neutral/500 */
+  --color-muted: #a3a3a3;     /* neutral/400 */
+  --color-soft: #d4d4d4;      /* neutral/300 */
+  --color-text: #e5e5e5;      /* neutral/200 */
+  --color-strong: #fafafa;    /* neutral/50 */
+  --color-chip: #99a3b2;
+  --color-azure-28: #023b8f;
+  --color-azure-51: #2681de;
+  --color-azure-64: #4fa3f7;
+  --color-blue-8: #0a0722;
+  --color-ping: #2f72ff;
+  --color-danger: #ff5454;
+  --color-ok: #2ed573;
+  --color-ok-2: #22c55e;
+}
+
+html {
+  scroll-behavior: smooth;
+  background: var(--color-page);
+  color: var(--color-text);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  background: var(--color-page);
+  overflow-x: hidden;
+}
+
+/* Section anchors land below the sticky navbar */
+[id] {
+  scroll-margin-top: 100px;
+}
+
+/* Hero / CTA radial glow (same stops as the Figma gradient) */
+.glow-top {
+  background-image: radial-gradient(
+    100% 100% at 50% 0%,
+    rgb(79 163 247) 0%,
+    rgb(60 137 221) 10.247%,
+    rgb(41 111 195) 20.494%,
+    rgb(21 85 169) 30.741%,
+    rgb(2 59 143) 40.988%,
+    rgb(4 48 113) 52.994%,
+    rgb(6 37 82) 65%,
+    rgb(6 35 77) 70%,
+    rgb(8 22 43) 85%,
+    rgb(9 16 27) 92.5%,
+    rgb(10 10 10) 100%
+  );
+}
+
+/* Partner strip marquee */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+.marquee-track {
+  animation: marquee 40s linear infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track { animation: none; }
+}

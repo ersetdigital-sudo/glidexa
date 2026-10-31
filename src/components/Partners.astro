@@ -1,0 +1,20 @@
+---
+import { PARTNERS } from '../data/site';
+// Two copies of the list so the marquee loops without a gap.
+const loop = [...PARTNERS, ...PARTNERS, ...PARTNERS, ...PARTNERS];
+---
+
+<section class="relative flex h-[110px] w-full items-center justify-center overflow-clip border-b border-line bg-page lg:h-[161px]" aria-label="Supported game genres">
+  <div class="h-[38px] w-full max-w-none overflow-clip opacity-80 lg:mt-[1px]">
+    <div class="marquee-track flex w-max items-center gap-[54px]">
+      {
+        loop.map((p) => (
+          <div class="flex shrink-0 items-center gap-5">
+            <img src={p.icon} alt="" style={`width:${p.w}px;height:${p.h}px`} class="shrink-0" />
+            <span class="font-inter text-2xl leading-[30px] font-semibold tracking-[-0.15px] whitespace-nowrap text-soft">{p.label}</span>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

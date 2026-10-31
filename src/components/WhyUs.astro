@@ -1,0 +1,84 @@
+---
+import { WHY_US } from '../data/site';
+import SectionBadge from './SectionBadge.astro';
+import SectionHeading from './SectionHeading.astro';
+
+const pings = [
+  { left: 59.5, top: 27 },
+  { left: 240.5, top: 98 },
+  { left: 430.5, top: 61 },
+  { left: 456.5, top: 373 },
+  { left: 116.5, top: 367 },
+  { left: 250.5, top: 422 },
+];
+---
+
+<section id="why-us" class="relative w-full overflow-clip border-y border-line bg-page px-0 lg:h-[976px]">
+  <div class="relative mx-auto flex w-full max-w-none flex-col items-center gap-10 border-x border-line px-4 py-16 sm:px-8 lg:-mt-px lg:px-16 lg:py-20">
+    <SectionBadge label={WHY_US.badge} />
+
+    <div class="flex w-full flex-col items-center gap-14">
+      <SectionHeading title={WHY_US.title} subtitle={WHY_US.subtitle} />
+
+      <div class="flex w-full max-w-[1112px] flex-col items-center gap-10 lg:flex-row lg:items-center lg:justify-between lg:max-w-[1400px] lg:gap-10">
+        <!-- accordion -->
+        <div class="flex w-full flex-col items-start gap-4 lg:flex-1" data-accordion>
+          {
+            WHY_US.items.map((item, i) => (
+              <button
+                type="button"
+                class="group flex w-full cursor-pointer flex-col items-start bg-surface p-6 text-left"
+                data-accordion-item
+                aria-expanded={i === 0 ? 'true' : 'false'}
+              >
+                <span class="flex w-full flex-col items-start gap-0 p-2.5 group-aria-expanded:gap-4">
+                  <span class="flex items-center gap-2">
+                    <span class="h-5 w-1 shrink-0 bg-[#d9d9d9] group-aria-expanded:bg-linear-to-b group-aria-expanded:from-azure-51 group-aria-expanded:to-azure-64" />
+                    <span class="font-mono text-xl leading-9 font-medium tracking-[-0.16px] text-white lg:text-2xl lg:whitespace-nowrap">{item.title}</span>
+                  </span>
+                  <span class="hidden w-full max-w-[528px] lg:max-w-[760px] font-inter text-base leading-7 tracking-[-0.16px] text-text group-aria-expanded:block lg:text-xl lg:leading-[30px]">
+                    {item.text}
+                  </span>
+                </span>
+              </button>
+            ))
+          }
+        </div>
+
+        <!-- visual -->
+        <div class="relative h-[540px] w-[500px] shrink-0 overflow-clip max-sm:[zoom:0.62]">
+          <img alt="" class="pointer-events-none absolute inset-0 size-full max-w-none object-cover" src="/images/why-us-bg.png" />
+          <div class="absolute top-[163px] left-1/2 h-[177px] w-[374px] -translate-x-1/2 rounded-lg border-5 border-solid border-line">
+            <img alt="Gameplay screenshot" class="pointer-events-none absolute inset-0 size-full max-w-none rounded-lg object-cover" src="/images/why-us-screen.jpg" />
+          </div>
+          <div class="absolute inset-[24.07%_29%_29.44%_34.6%]"><img alt="" class="absolute inset-0 block size-full max-w-none" src="/images/why-us-glow-1.svg" /></div>
+          <div class="absolute inset-[25.74%_31.6%_31.63%_36.4%]"><img alt="" class="absolute inset-0 block size-full max-w-none" src="/images/why-us-glow-2.svg" /></div>
+          <div class="absolute top-[153.15px] left-[192.99px] h-[205.186px] w-[140.682px]">
+            <img alt="" class="absolute inset-0 block size-full max-w-none" src="/images/why-us-bolt.png" />
+          </div>
+          {
+            pings.map((p) => (
+              <p
+                class="absolute -translate-x-1/2 text-center font-mono text-xs leading-5 whitespace-nowrap text-ok-2"
+                style={`left:${p.left}px;top:${p.top}px`}
+              >
+                ping 2 ms
+              </p>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  document.querySelectorAll<HTMLElement>('[data-accordion]').forEach((group) => {
+    const items = group.querySelectorAll<HTMLButtonElement>('[data-accordion-item]');
+    items.forEach((item) =>
+      item.addEventListener('click', () => {
+        items.forEach((other) => other.setAttribute('aria-expanded', String(other === item)));
+      }),
+    );
+  });
+</script>

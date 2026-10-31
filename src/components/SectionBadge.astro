@@ -1,0 +1,12 @@
+---
+// Small pill above each section title ("APP", "WHY US", ...)
+interface Props {
+  label: string;
+}
+const { label } = Astro.props;
+---
+
+<div class="relative flex shrink-0 items-center justify-center gap-4 border border-surface-2 bg-surface-2 px-6 py-4">
+  <span class="h-4 w-9 shrink-0 bg-linear-to-b from-azure-64 to-azure-51"></span>
+  <span class="font-mono text-base leading-5 font-medium whitespace-nowrap text-text">{label}</span>
+</div>

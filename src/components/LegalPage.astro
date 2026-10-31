@@ -1,0 +1,63 @@
+---
+// Shared layout for Privacy Policy and Terms & Conditions
+import type { LegalDoc } from '../data/legal';
+
+interface Props {
+  doc: LegalDoc;
+}
+
+const { doc } = Astro.props;
+const EMAIL = 'support@glidexavpn.com';
+const withEmail = (text: string) => text.split(EMAIL);
+---
+
+<section class="relative w-full overflow-clip bg-page px-0">
+  <div class="glow-top relative mx-auto flex w-full flex-col items-center gap-4 border-x border-line px-4 pt-20 pb-9 sm:px-8 lg:h-[403px] lg:px-16 lg:pt-[124px]">
+    <div class="pointer-events-none absolute top-[-2px] left-0 h-[486px] w-full overflow-hidden mix-blend-hard-light">
+      <img alt="" class="absolute top-0 left-0 h-[110.08%] w-[103.55%] max-w-none" src="/images/bg-texture.png" />
+    </div>
+    <h1 class="relative w-full max-w-[1110px] text-center font-mono text-[32px] leading-[48px] font-medium text-text sm:text-5xl sm:leading-[72px] lg:text-[64px] lg:leading-[96px]">
+      {doc.title}
+    </h1>
+    <p class="relative font-mono text-sm leading-6 text-muted">{doc.updated}</p>
+  </div>
+</section>
+
+<section class="relative flex w-full flex-col items-start overflow-clip border-t border-line bg-page px-0">
+  <div class="mx-auto flex w-full flex-col items-center border-x border-line bg-page px-6 py-12 lg:p-16">
+    <article class="flex w-full max-w-[1110px] flex-col gap-10 text-text min-[1441px]:max-w-[1400px]">
+      <div class="flex flex-col gap-6 font-geist text-base leading-8 lg:gap-12 lg:text-2xl lg:leading-[48px]">
+        {doc.intro.map((p) => <p>{p}</p>)}
+      </div>
+
+      {
+        doc.sections.map((s) => (
+          <section class="flex flex-col gap-4 border-t border-line pt-8">
+            <h2 class="font-mono text-lg leading-8 font-medium text-white lg:text-2xl lg:leading-9">{s.heading}</h2>
+            {s.paragraphs.map((p) => (
+              <p class="font-geist text-base leading-7 lg:text-xl lg:leading-9">
+                {withEmail(p).map((part, i) => (
+                  <>
+                    {i > 0 && (
+                      <a href={`mailto:${EMAIL}`} class="text-azure-64 underline-offset-4 hover:underline">
+                        {EMAIL}
+                      </a>
+                    )}
+                    {part}
+                  </>
+                ))}
+              </p>
+            ))}
+            {s.list && (
+              <ul class="flex list-disc flex-col gap-2 pl-6 font-geist text-base leading-7 marker:text-azure-64 lg:text-xl lg:leading-9">
+                {s.list.map((item) => (
+                  <li>{item}</li>
+                ))}
+              </ul>
+            )}
+          </section>
+        ))
+      }
+    </article>
+  </div>
+</section>

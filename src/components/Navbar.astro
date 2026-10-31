@@ -1,0 +1,66 @@
+---
+import { LINKS, NAV } from '../data/site';
+---
+
+<header class="sticky top-0 z-50 w-full border-y border-line bg-page px-0 lg:h-[100px] lg:border-y-0 lg:shadow-[inset_0_1px_0_var(--color-line),inset_0_-1px_0_var(--color-line)]">
+  <div class="mx-auto w-full max-w-none border border-line px-4 py-3 lg:flex lg:h-[100px] lg:flex-col lg:justify-center lg:px-[max(2.5rem,calc((100%-1400px)/2))] lg:py-0">
+    <div class="relative flex w-full items-center justify-between">
+      <a href="/#home" class="flex h-10 items-center gap-3 lg:h-[52px]" aria-label="GlideXAVPN home">
+        <img src="/images/logo.svg" alt="" width="23" height="22" class="h-[22px] w-[23px]" />
+        <span class="font-geist text-xl leading-9 font-medium tracking-[-0.15px] text-text lg:text-2xl">GLIDEXAVPN</span>
+      </a>
+
+      <nav class="absolute top-[13px] left-1/2 hidden -translate-x-1/2 items-center gap-8 lg:flex" aria-label="Main">
+        {
+          NAV.map((item) => (
+            <a href={item.href} class="font-mono text-base leading-5 font-medium whitespace-nowrap text-text transition-colors hover:text-azure-64">
+              {item.label}
+            </a>
+          ))
+        }
+      </nav>
+
+      <div class="flex items-center gap-3">
+        <a
+          href={LINKS.playStore}
+          target="_blank"
+          rel="noopener"
+          class="flex items-center justify-center rounded-lg border border-azure-51 bg-linear-to-r from-azure-28 to-azure-64 px-4 py-2.5 transition-opacity hover:opacity-90 lg:px-8 lg:py-[15px]"
+        >
+          <span class="font-mono text-xs leading-5 font-medium tracking-[-0.16px] whitespace-nowrap text-text lg:text-base">DOWNLOAD FREE</span>
+        </a>
+        <button
+          type="button"
+          class="flex size-10 items-center justify-center rounded-lg border border-line text-text lg:hidden"
+          aria-label="Open menu"
+          aria-expanded="false"
+          data-menu-toggle
+        >
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16" /></svg>
+        </button>
+      </div>
+    </div>
+
+    <nav class="hidden flex-col gap-1 pt-3 lg:hidden" aria-label="Mobile" data-menu>
+      {
+        NAV.map((item) => (
+          <a href={item.href} class="border-t border-line py-3 font-mono text-sm leading-5 font-medium text-text" data-menu-link>
+            {item.label}
+          </a>
+        ))
+      }
+    </nav>
+  </div>
+</header>
+
+<script>
+  const toggle = document.querySelector<HTMLButtonElement>('[data-menu-toggle]');
+  const menu = document.querySelector<HTMLElement>('[data-menu]');
+  const setOpen = (open: boolean) => {
+    menu?.classList.toggle('hidden', !open);
+    menu?.classList.toggle('flex', open);
+    toggle?.setAttribute('aria-expanded', String(open));
+  };
+  toggle?.addEventListener('click', () => setOpen(menu?.classList.contains('hidden') ?? false));
+  document.querySelectorAll('[data-menu-link]').forEach((link) => link.addEventListener('click', () => setOpen(false)));
+</script>

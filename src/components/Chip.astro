@@ -1,0 +1,18 @@
+---
+// Floating status chip used inside the feature visuals
+interface Props {
+  dot: string;
+  label: string;
+  sub?: string;
+  class?: string;
+}
+const { dot, label, sub, class: className = '' } = Astro.props;
+---
+
+<div class:list={['absolute flex items-center gap-2 overflow-clip rounded-lg border border-white/12 bg-[rgba(14,16,22,0.94)] px-3 py-2 shadow-[0px_8px_20px_0px_rgba(0,0,0,0.5)]', className]}>
+  <span class="relative size-2 shrink-0">
+    <span class="absolute inset-[-75%]"><img alt="" class="block size-full max-w-none" src={dot} /></span>
+  </span>
+  <span class="font-inter text-xs leading-[normal] font-medium whitespace-nowrap text-white">{label}</span>
+  {sub && <span class="font-mono text-[11px] leading-[normal] whitespace-nowrap text-chip">{sub}</span>}
+</div>

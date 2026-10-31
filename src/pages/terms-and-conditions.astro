@@ -1,0 +1,9 @@
+---
+import Base from '../layouts/Base.astro';
+import LegalPage from '../components/LegalPage.astro';
+import { TERMS } from '../data/legal';
+---
+
+<Base title="Terms & Conditions - GlideXAVPN" description="The terms that apply when you use GlideXAVPN.">
+  <LegalPage doc={TERMS} />
+</Base>

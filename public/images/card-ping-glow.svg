@@ -1,0 +1,14 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="360" height="360" viewBox="0 0 360 360" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="glow" clip-path="url(#clip0_0_466)">
+<path id="Vector" d="M360 0H0V360H360V0Z" fill="url(#paint0_radial_0_466)"/>
+</g>
+<defs>
+<radialGradient id="paint0_radial_0_466" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(250 270) scale(260 180)">
+<stop stop-color="#2F72FF" stop-opacity="0.28"/>
+<stop offset="1" stop-color="#2F72FF" stop-opacity="0"/>
+</radialGradient>
+<clipPath id="clip0_0_466">
+<rect width="360" height="360" fill="white"/>
+</clipPath>
+</defs>
+</svg>

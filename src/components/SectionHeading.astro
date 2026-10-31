@@ -1,0 +1,16 @@
+---
+// Section title + subtitle block (48/96 JetBrains Mono title, 16/30 Geist subtitle)
+interface Props {
+  title: string;
+  subtitle?: string;
+  subtitleClass?: string;
+}
+const { title, subtitle, subtitleClass = 'font-geist text-base leading-[30px] tracking-[-0.16px] text-text' } = Astro.props;
+---
+
+<div class="relative flex w-full flex-col items-center gap-4">
+  <h2 class="w-full text-center font-mono text-[28px] leading-10 font-medium text-text sm:text-[36px] sm:leading-[56px] lg:text-5xl lg:leading-[96px]">
+    {title}
+  </h2>
+  {subtitle && <p class:list={['w-full text-center', subtitleClass]}>{subtitle}</p>}
+</div>
