@@ -1,6 +1,6 @@
 ---
-import { CTA, IOS_NOTE, LINKS } from '../data/site';
-import AndroidIcon from './AndroidIcon.astro';
+import { CTA } from '../data/site';
+import StoreBadges from './StoreBadges.astro';
 ---
 
 <section class="relative flex w-full flex-col items-start overflow-clip border-y border-line bg-page px-0">
@@ -12,17 +12,6 @@ import AndroidIcon from './AndroidIcon.astro';
       <h2 class="w-full max-w-[1112px] font-mono text-[28px] leading-10 font-medium sm:text-[36px] sm:leading-[56px] lg:text-5xl lg:leading-[96px]">{CTA.title}</h2>
       <p class="font-geist text-base leading-7 sm:text-lg sm:leading-9 lg:text-2xl lg:leading-[48px] xl:-mx-12 xl:whitespace-nowrap">{CTA.subtitle}</p>
     </div>
-    <div class="relative flex flex-col items-center gap-2">
-      <a
-        href={LINKS.playStore}
-        target="_blank"
-        rel="noopener"
-        class="flex items-center justify-center gap-3 rounded-lg border border-azure-51 bg-white px-8 py-[15px] text-page transition-opacity hover:opacity-90"
-      >
-        <AndroidIcon class="size-6 text-[#3ddc84] lg:size-7" />
-        <span class="font-mono text-lg leading-9 tracking-[-0.16px] whitespace-nowrap lg:text-2xl">{CTA.button}</span>
-      </a>
-      <span class="font-mono text-sm leading-5 text-text/80">{IOS_NOTE}</span>
-    </div>
+    <StoreBadges class="relative" />
   </div>
 </section>

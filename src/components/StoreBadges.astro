@@ -1,0 +1,43 @@
+---
+// Google Play (live) + App Store (coming soon) badges
+import { LINKS, STORES } from '../data/site';
+import PlayLogo from './PlayLogo.astro';
+
+interface Props {
+  class?: string;
+}
+const { class: className = '' } = Astro.props;
+---
+
+<div class:list={['flex w-full flex-col items-stretch gap-3 sm:w-auto sm:flex-row sm:items-center sm:gap-4', className]}>
+  <a
+    href={LINKS.playStore}
+    target="_blank"
+    rel="noopener"
+    class="group flex h-[60px] items-center justify-center gap-3 rounded-xl border border-white/25 bg-black px-6 shadow-[0_10px_30px_-10px_rgba(38,129,222,0.55)] transition-all duration-200 hover:-translate-y-0.5 hover:border-azure-64 hover:shadow-[0_14px_36px_-10px_rgba(79,163,247,0.7)] sm:min-w-[214px] lg:h-16"
+    aria-label="Get GlideXAVPN on Google Play"
+  >
+    <PlayLogo class="size-7 lg:size-8" />
+    <span class="flex flex-col items-start leading-none">
+      <span class="font-inter text-[10px] font-semibold tracking-[0.12em] text-white/75">{STORES.android.kicker}</span>
+      <span class="mt-1 font-inter text-[20px] font-semibold tracking-[-0.01em] text-white lg:text-[22px]">{STORES.android.name}</span>
+    </span>
+  </a>
+
+  <div
+    class="relative flex h-[60px] cursor-not-allowed items-center justify-center gap-3 rounded-xl border border-white/12 bg-white/[0.04] px-6 backdrop-blur-sm sm:min-w-[214px] lg:h-16"
+    aria-label="App Store version coming soon"
+    aria-disabled="true"
+  >
+    <svg class="size-7 shrink-0 text-white/70 lg:size-8" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M16.37 1.43c0 1.14-.5 2.27-1.18 3.08-.74.9-1.99 1.57-2.99 1.57-.12 0-.23-.02-.3-.03-.01-.06-.04-.22-.04-.39 0-1.15.57-2.27 1.2-2.98.8-.94 2.15-1.64 3.25-1.68.03.13.06.28.06.43Zm4.56 15.71c-.03.07-.46 1.58-1.52 3.12-.94 1.34-1.94 2.71-3.43 2.71-1.52 0-1.9-.88-3.63-.88-1.7 0-2.3.91-3.67.91-1.38 0-2.33-1.26-3.43-2.8C4 18.38 2.97 15.57 2.97 12.92c0-4.28 2.8-6.55 5.55-6.55 1.45 0 2.67.95 3.6.95.86 0 2.22-1.01 3.9-1.01.61 0 2.89.06 4.37 2.19-.13.09-2.38 1.37-2.38 4.19 0 3.26 2.85 4.42 2.95 4.45Z" />
+    </svg>
+    <span class="flex flex-col items-start leading-none">
+      <span class="font-inter text-[10px] font-semibold tracking-[0.12em] text-white/55">{STORES.ios.kicker}</span>
+      <span class="mt-1 font-inter text-[20px] font-semibold tracking-[-0.01em] text-white/70 lg:text-[22px]">{STORES.ios.name}</span>
+    </span>
+    <span class="absolute -top-2.5 right-3 rounded-full border border-azure-51 bg-linear-to-r from-azure-51 to-azure-64 px-2 py-0.5 font-mono text-[10px] font-bold tracking-wider text-white">
+      {STORES.ios.badge}
+    </span>
+  </div>
+</div>

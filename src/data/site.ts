@@ -24,15 +24,17 @@ export const HERO = {
   title: 'PLAY SECURE. STAY STABLE. GAME WITHOUT WORRY.',
   subtitle:
     'GlideXAVPN routes your game traffic through low-ping servers, so every match stays smooth from the first round to the last. Try it free for 7 days.',
-  primaryCta: 'GET IT ON PLAY STORE',
-  secondaryCta: 'SEE PRICING',
+  note: '7-day free trial · Cancel anytime',
 };
 
 // Waitlist is closed, this strip now sends people to Google Play.
 export const DOWNLOAD_STRIP = 'DOWNLOAD ON GOOGLE PLAY';
 
-// Shown under the Play Store buttons until the iOS app is out.
-export const IOS_NOTE = 'iOS version coming soon';
+// Store badges. iOS stays disabled until the App Store listing is live.
+export const STORES = {
+  android: { kicker: 'GET IT ON', name: 'Google Play' },
+  ios: { kicker: 'COMING SOON ON', name: 'App Store', badge: 'SOON' },
+};
 
 // Placeholder strip (customer asked for something neutral instead of partner logos).
 export const PARTNERS = [
@@ -88,63 +90,48 @@ export const WHY_US = {
   ],
 };
 
-export type IconName =
-  | 'clock-01'
-  | 'customer-support'
-  | 'lock-keyhole'
-  | 'ai-magic'
-  | 'ticket-star'
-  | 'marketing'
-  | 'globe-02'
-  | 'task-01'
-  | 'monitor-smartphone';
-
-const FEATURE_ICONS: IconName[] = [
-  'clock-01',
-  'customer-support',
-  'lock-keyhole',
-  'ai-magic',
-  'ticket-star',
-  'marketing',
-  'globe-02',
-  'task-01',
-  'monitor-smartphone',
-];
-
-const BASE_FEATURES = [
-  '7-Day Free Trial',
-  'All Servers Unlocked',
-  'Low-Ping Routes',
-  'Smart Server Selection',
-  'No Ads',
-  'No-Logs Privacy',
-  '24/7 Support',
-];
-
-const withIcons = (rows: string[]) => rows.map((label, i) => ({ label, icon: FEATURE_ICONS[i] }));
-
 export const PRICING = {
   badge: 'PRICING',
   title: 'PICK YOUR PLAN',
   subtitle: 'Start with a 7-day free trial. Cancel anytime.',
+  cta: 'START FREE TRIAL',
+  features: [
+    '7-Day Free Trial',
+    'All Servers Unlocked',
+    'Low-Ping Game Routes',
+    'Smart Server Selection',
+    'No Ads',
+    'No-Logs Privacy',
+    '24/7 Support',
+  ],
   plans: [
     {
       name: 'Monthly',
-      price: 'Rp 49k/month',
-      tag: 'first 3 months',
-      features: withIcons(['Then Rp 69k/month', ...BASE_FEATURES, '3 Devices']),
+      price: 'Rp 49k',
+      unit: '/month',
+      note: 'First 3 months, then Rp 69k/month',
+      tag: 'INTRO PRICE',
+      devices: '3 Devices',
+      featured: false,
     },
     {
       name: '6 Months',
-      price: 'Rp 50k/month',
-      tag: 'save 28%',
-      features: withIcons(['Rp 299k billed once', ...BASE_FEATURES, '3 Devices']),
+      price: 'Rp 50k',
+      unit: '/month',
+      note: 'Rp 299k billed every 6 months',
+      tag: 'SAVE 28%',
+      devices: '3 Devices',
+      featured: false,
     },
     {
       name: 'Yearly',
-      price: 'Rp 42k/month',
-      tag: 'save 40%',
-      features: withIcons(['Rp 499k billed once', ...BASE_FEATURES, '4 Devices (+1 Bonus)']),
+      price: 'Rp 42k',
+      unit: '/month',
+      note: 'Rp 499k billed once a year',
+      tag: 'SAVE 40%',
+      devices: '4 Devices (+1 Bonus)',
+      featured: true,
+      ribbon: 'BEST VALUE',
     },
   ],
 };
@@ -182,7 +169,6 @@ export const CTA = {
   title: 'START YOUR 7-DAY FREE TRIAL',
   subtitle:
     'Download GlideXAVPN on Google Play and feel the difference in your next match. Plans start at Rp 49k/month.',
-  button: 'GET IT ON PLAY STORE',
 };
 
 export const COMPANY = {

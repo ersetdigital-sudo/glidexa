@@ -1,0 +1,14 @@
+---
+// Google Play triangle mark
+interface Props {
+  class?: string;
+}
+const { class: className = 'size-7' } = Astro.props;
+---
+
+<svg class:list={['shrink-0', className]} viewBox="0 0 24 24" aria-hidden="true">
+  <path d="M3.61 1.8 13.5 12 3.61 22.2A1.3 1.3 0 0 1 3 21.1V2.9c0-.47.24-.88.61-1.1Z" fill="#4285F4" />
+  <path d="M3.61 1.8c.37-.22.84-.24 1.27 0L16.9 8.7 13.5 12 3.61 1.8Z" fill="#34A853" />
+  <path d="M3.61 22.2 13.5 12l3.4 3.3-12.02 6.9c-.43.24-.9.22-1.27 0Z" fill="#EA4335" />
+  <path d="m16.9 8.7 3.36 1.93c1 .58 1 2.16 0 2.74L16.9 15.3 13.5 12l3.4-3.3Z" fill="#FBBC04" />
+</svg>
