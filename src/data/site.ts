@@ -21,7 +21,7 @@ export const NAV = [
 export const TOP_BAR = '7-DAY FREE TRIAL — PLANS FROM RP 49K/MONTH FOR YOUR FIRST 3 MONTHS';
 
 export const HERO = {
-  title: "STABLE PING. ZERO LAG. GAME LIKE NOTHING'S IN YOUR WAY",
+  title: 'PLAY SECURE. STAY STABLE. GAME WITHOUT WORRY.',
   subtitle:
     'GlideXAVPN routes your game traffic through low-ping servers, so every match stays smooth from the first round to the last. Try it free for 7 days.',
   primaryCta: 'GET IT ON PLAY STORE',
@@ -30,6 +30,9 @@ export const HERO = {
 
 // Waitlist is closed, this strip now sends people to Google Play.
 export const DOWNLOAD_STRIP = 'DOWNLOAD ON GOOGLE PLAY';
+
+// Shown under the Play Store buttons until the iOS app is out.
+export const IOS_NOTE = 'iOS version coming soon';
 
 // Placeholder strip (customer asked for something neutral instead of partner logos).
 export const PARTNERS = [

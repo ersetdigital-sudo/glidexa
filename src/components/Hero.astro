@@ -1,5 +1,6 @@
 ---
-import { HERO, LINKS } from '../data/site';
+import { HERO, IOS_NOTE, LINKS } from '../data/site';
+import AndroidIcon from './AndroidIcon.astro';
 import PhoneMockup from './PhoneMockup.astro';
 ---
 
@@ -13,21 +14,25 @@ import PhoneMockup from './PhoneMockup.astro';
     </div>
 
     <div class="relative flex w-full max-w-[1112px] flex-col items-center gap-4 text-center text-text">
-      <h1 class="w-full font-mono text-[30px] leading-[44px] font-medium sm:text-[44px] sm:leading-[64px] lg:text-[64px] lg:leading-[96px]">
+      <h1 class="w-full text-balance font-mono text-[30px] leading-[44px] font-medium sm:text-[44px] sm:leading-[64px] lg:text-[64px] lg:leading-[96px]">
         {HERO.title}
       </h1>
       <p class="w-full font-geist text-base leading-7 sm:text-lg sm:leading-9 lg:text-xl lg:leading-[48px]">{HERO.subtitle}</p>
     </div>
 
     <div class="relative flex w-full flex-col items-stretch gap-4 sm:w-auto sm:flex-row sm:items-start sm:gap-6">
-      <a
-        href={LINKS.playStore}
-        target="_blank"
-        rel="noopener"
-        class="flex items-center justify-center rounded-lg border border-azure-51 bg-linear-to-r from-azure-51 to-azure-64 px-8 py-[15px] transition-opacity hover:opacity-90"
-      >
-        <span class="font-mono text-lg leading-9 font-medium tracking-[-0.16px] whitespace-nowrap text-strong lg:text-2xl">{HERO.primaryCta}</span>
-      </a>
+      <div class="flex flex-col items-center gap-2">
+        <a
+          href={LINKS.playStore}
+          target="_blank"
+          rel="noopener"
+          class="flex w-full items-center justify-center gap-3 rounded-lg border border-azure-51 bg-linear-to-r from-azure-51 to-azure-64 px-8 py-[15px] text-strong transition-opacity hover:opacity-90"
+        >
+          <AndroidIcon class="size-6 lg:size-7" />
+          <span class="font-mono text-lg leading-9 font-medium tracking-[-0.16px] whitespace-nowrap lg:text-2xl">{HERO.primaryCta}</span>
+        </a>
+        <span class="font-mono text-sm leading-5 text-text/80">{IOS_NOTE}</span>
+      </div>
       <a href="/#pricing" class="flex items-center justify-center rounded-lg border border-azure-51 bg-white px-8 py-[15px] transition-opacity hover:opacity-90">
         <span class="font-mono text-lg leading-9 font-medium tracking-[-0.16px] whitespace-nowrap text-page lg:text-2xl">{HERO.secondaryCta}</span>
       </a>

@@ -1,0 +1,11 @@
+---
+// Android robot head, inherits the text colour of the button it sits in
+interface Props {
+  class?: string;
+}
+const { class: className = 'size-6' } = Astro.props;
+---
+
+<svg class:list={['shrink-0', className]} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+  <path d="M17.6 9.48l1.84-3.18a.38.38 0 0 0-.14-.52.38.38 0 0 0-.52.14l-1.87 3.23A11.43 11.43 0 0 0 12 8.2c-1.77 0-3.43.37-4.91 1L5.22 5.92a.38.38 0 0 0-.52-.14.38.38 0 0 0-.14.52L6.4 9.48C3.24 11.2 1.08 14.4.75 18.15h22.5c-.33-3.75-2.49-6.95-5.65-8.67zM7 15.25a1.13 1.13 0 1 1 0-2.25 1.13 1.13 0 0 1 0 2.25zm10 0a1.13 1.13 0 1 1 0-2.25 1.13 1.13 0 0 1 0 2.25z" />
+</svg>

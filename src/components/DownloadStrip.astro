@@ -1,10 +1,12 @@
 ---
 import { DOWNLOAD_STRIP, LINKS } from '../data/site';
+import AndroidIcon from './AndroidIcon.astro';
 ---
 
 <section id="download" class="relative flex w-full items-center justify-center border border-line bg-page py-6 lg:py-8">
   <div class="flex min-w-px flex-1 items-center justify-center border-y border-line">
-    <a href={LINKS.playStore} target="_blank" rel="noopener" class="flex items-center justify-center border-x border-line px-8 py-6 transition-colors hover:bg-surface lg:px-16">
+    <a href={LINKS.playStore} target="_blank" rel="noopener" class="flex items-center justify-center gap-3 border-x border-line px-8 py-6 text-text transition-colors hover:bg-surface lg:px-16">
+      <AndroidIcon class="size-5 text-[#3ddc84] lg:size-6" />
       <span class="font-mono text-lg leading-5 font-medium whitespace-nowrap text-text lg:text-2xl">{DOWNLOAD_STRIP}</span>
     </a>
   </div>
