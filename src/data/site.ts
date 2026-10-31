@@ -174,7 +174,8 @@ export const CTA = {
 export const COMPANY = {
   name: 'PT. GLIDEXA INOVASI DIGITAL',
   pse: 'PSE Komdigi: 029356.01/DJAI.PSE/08/2026.',
-  copyright: 'Copyright © 2026 PT Glidexa Inovasi Digital. All rights reserved.',
+  // Original (hidden for now): 'Copyright © 2026 PT Glidexa Inovasi Digital. All rights reserved.'
+  copyright: 'Copyright © 2026 GlideXAVPN. All rights reserved.',
 };
 
 export const FOOTER_COLUMNS = [

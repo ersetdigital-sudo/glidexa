@@ -1,3 +1,4 @@
+// Company name (PT Glidexa Inovasi Digital) hidden for now per customer request.
 // DRAFT legal copy. General wording only, to be replaced by the legal team's final version.
 
 export type LegalSection = { heading: string; paragraphs: string[]; list?: string[] };
@@ -10,7 +11,7 @@ export const PRIVACY_POLICY: LegalDoc = {
   updated: 'Last updated: 31 October 2026',
   intro: [
     'At GlideXAVPN, we respect your privacy. We only collect the information needed to run our service, manage your account, free trial, and subscription, and improve your experience.',
-    'This Privacy Policy explains what we collect, what we do not collect, how we use it, and the choices you have. It applies to the GlideXAVPN app and this website, operated by PT Glidexa Inovasi Digital.',
+    'This Privacy Policy explains what we collect, what we do not collect, how we use it, and the choices you have. It applies to the GlideXAVPN app and this website.',
   ],
   sections: [
     {
@@ -90,7 +91,7 @@ export const TERMS: LegalDoc = {
   title: 'TERMS & CONDITIONS',
   updated: 'Last updated: 31 October 2026',
   intro: [
-    'These Terms & Conditions govern your use of the GlideXAVPN app and website, operated by PT Glidexa Inovasi Digital. By downloading or using GlideXAVPN, you agree to these terms. If you do not agree, please do not use the service.',
+    'These Terms & Conditions govern your use of the GlideXAVPN app and website. By downloading or using GlideXAVPN, you agree to these terms. If you do not agree, please do not use the service.',
   ],
   sections: [
     {
@@ -148,7 +149,7 @@ export const TERMS: LegalDoc = {
     {
       heading: '8. Intellectual property',
       paragraphs: [
-        'The GlideXAVPN name, logo, app, and website content belong to PT Glidexa Inovasi Digital. You may not copy or use them without our written permission.',
+        'The GlideXAVPN name, logo, app, and website content belong to GlideXAVPN. You may not copy or use them without our written permission.',
       ],
     },
     {
